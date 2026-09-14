@@ -47,7 +47,7 @@ const UpdateProducts = (req,res) =>{
     const {id} = req.params;
     const products = req.body
 
-    productModel.updateProducts(products,id,(err,result)=>{
+    productModel.updateProducts(id,products,(err,result)=>{
         if(err){
             console.log('Error happend on the product update',err)
         }
@@ -58,10 +58,27 @@ const UpdateProducts = (req,res) =>{
     })
 }
 
+const DeleteProducts = (req,res) =>{
+    const {id} = req.params
+    productModel.deleteProducts(id,(err,result)=>{
+        if(err){
+            res.status(500).send({
+                message:"Error happend during the deleting of the data"
+            })
+            console.log('Error happened on the deleting of the products',err)
+        }
+        else{
+            res.status(200).send(result)
+            console.log('Data successfully deleted')
+        }
+        
+    })
+}
 
 module.exports = {
     GetAllProducts,
     CreateProducts,
     GetProductsById,
-    UpdateProducts
+    UpdateProducts,
+    DeleteProducts
 }

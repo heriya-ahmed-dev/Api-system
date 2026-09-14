@@ -8,7 +8,12 @@ const createProducts = (products,callback) =>{
                 (name ,description , price ,image,stock, category_id)
                 VALUES (?,?,?,?,?,?)`
     const values = [
-        name,description,price,image,stock,category_id
+                    name,
+                    description,
+                    price,
+                    image,
+                    stock,
+                    category_id
     ]
     db.query(sql,values,callback)
 }
@@ -37,22 +42,34 @@ const updateProducts = (id,products,callback) =>{
                     image = ?,
                     stock = ?,
                     category_id = ?                           
-                    WHERE id = ? 
+                WHERE id = ? 
                   `
 
     const values = [
-        name ,description , price ,image,stock, category_id
+                    name,
+                    description, 
+                    price,
+                    image,
+                    stock, 
+                    category_id,
+                    id
     ]
-        db.query(sql,[id],values,callback)
+        db.query(sql,values,callback)
 }
 
-
+const deleteProducts = (id,callback) =>{
+    
+    const sql = `DELETE FROM products WHERE id = ?`
+    
+    db.query(sql,[id],callback)
+}
 
 
 module.exports = {
     getAllProducts,
     createProducts,
     getProductById,
-    updateProducts
+    updateProducts,
+    deleteProducts
 }
 
