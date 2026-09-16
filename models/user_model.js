@@ -11,7 +11,7 @@ const createUser = (users,callback) =>{
         created_at
     } = users
   
-    const sql = `INSER INTO users 
+    const sql = `INSERT INTO users 
                   (name	,email,password	,phone,address, role ,created_at)
                   VALUES (?,?,?,?,?,?,?)`
    const values =  [
@@ -35,7 +35,7 @@ const getAllUser = (callback) =>{
 }
 
 const getUserById = (id,callback) =>{
-    const sql = `SELECT * FROM user WHERE id = ?`
+    const sql = `SELECT * FROM users WHERE id = ?`
     
     db.query(sql,[id],callback)
 }
@@ -58,8 +58,7 @@ const updateUser = (id,users,callback) =>{
                phone = ? ,
                address = ?,
                role = ?,
-               created_at = ? ,
-
+               created_at = ? 
                WHERE id = ?
               
      `
@@ -77,7 +76,7 @@ const updateUser = (id,users,callback) =>{
      db.query(sql,values,callback)
 }
 const deleteUser = (id,callback) =>{
-   const sql = `DELETE users WHERE id = ?`
+   const sql = `DELETE FROM users WHERE id = ?`
 
    db.query(sql,[id],callback)
 }

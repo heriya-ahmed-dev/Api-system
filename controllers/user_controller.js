@@ -1,10 +1,9 @@
 const userModel = require('../models/user_model');
 
 const CreateUser = (req,res) =>{
-    const {id} = req.params;
     const users = req.body
 
-    userModel.createUser(id,users,(err,result)=>{
+    userModel.createUser(users,(err,result)=>{
         if(err){
             res.status(500).send({
                 messgae : "Error happened during user created"
