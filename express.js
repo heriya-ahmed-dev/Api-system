@@ -10,19 +10,23 @@ const Category_Router = require('./routes/category_route');
 
 const User_Router = require('./routes/user_route');
 
-const Orders_Router = require('./routes/orders_route')
+const Orders_Router = require('./routes/orders_route');
+
+const OrderItems_Router = require('./routes/order_items_route');
 
 app.use(cors());
 
 const port  = process.env.PORT;
 
-app.use('/',Product_Router)
+app.use('/',Product_Router);
 
-app.use('/',Category_Router)
+app.use('/',Category_Router);
 
-app.use('/',User_Router)
+app.use('/',User_Router);
 
-app.use('/',Orders_Router)
+app.use('/',Orders_Router);
+
+app.use('/',OrderItems_Router);
 
 
 
@@ -35,3 +39,4 @@ app.listen(port,(err)=>{
     }
     
 })
+
