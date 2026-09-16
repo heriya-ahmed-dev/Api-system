@@ -11,7 +11,7 @@ const Create_Category = (req,res) =>{
             console.log('Error happened on the category creation',err)
          }
          else{
-            res.status(201).send({
+            res.status(200).send({
                 message:"category data succesfully created"
             })
             console.log('Category data successfully created!!!')
@@ -28,15 +28,16 @@ const GetAllCategory = (req,res) =>{
             console.log('Error happened on the category data sent from the data base',err)
          }
          else{
-            res.status(201).send(result)
             console.log('Category data successfully sent from the data base')
+            res.send(result)
+            
          }
     
     })
 }
 const GetCategoryById = (req,res) =>{
     const {id} = req.params
-    categoryModel.getcCategoryById(id,(err,result)=>{
+    categoryModel.getCategoryById(id, (err,result)=>{
          if(err){
             res.status(500).send({
                 message:'Error happened on the category data sent from the data base with id'
@@ -44,7 +45,7 @@ const GetCategoryById = (req,res) =>{
             console.log('Error happened on the category data sent from the data base with id',err)
          }
          else{
-            res.status(201).send(result)
+            res.status(200).send(result)
             console.log('Category data successfully sent from the data base')
          }
     })
@@ -62,10 +63,10 @@ const UpdateCategory = (req,res) =>{
             console.log('Error happened on the category updating',err)
          }
          else{
-            res.status(201).send({
+            res.status(200).send({
                 message:"category data succesfully updated"
             })
-            console.log('Category data successfully cupdated!!!')
+            console.log('Category data successfully updated!!!')
          }
     })
 }
@@ -80,7 +81,7 @@ const DeleteCategory = (req,res) =>{
             console.log('Error happened on the category deletion',err)
          }
          else{
-            res.status(201).send({
+            res.status(200).send({
                 message:"category data succesfully deleted"
             })
             console.log('Category data successfully deleted!!!')

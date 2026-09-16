@@ -14,11 +14,13 @@ const createCategory = (category,callback) =>{
         db.query(sql,values,callback)
 }
 
+
 const getAllCategory = (callback) =>{
-    const sql = ` SELECT * FROM categories`
+    const sql = `SELECT * FROM categories`
 
     db.query(sql,callback)
 }
+
 
 const getCategoryById = (id,callback) =>{
     const sql = `SELECT * FROM categories WHERE id = ?`
@@ -35,8 +37,8 @@ const updateCategory = (id,category,callback) =>{
                     id
                    ]
 
-    const sql  = `UPDATE FROM categories
-                 SET name =?
+    const sql  = `UPDATE categories
+                 SET  name = ?,
                      description = ?
                  WHERE id = ?`
 
