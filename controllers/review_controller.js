@@ -81,7 +81,7 @@ const Deletereview = (req,res) =>{
             })
             console.log('Error happend during deleting!!!')
         }
-        res.status.send({
+        res.status(200).send({
             message : "review data successfully deleted!!!"
         })
         console.log('review data successfully deleted!!!')

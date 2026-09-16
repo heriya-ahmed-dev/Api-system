@@ -10,7 +10,7 @@ const createreview = (reviews,callback) =>{
   
     const sql = `INSERT INTO reviews 
                   (user_id , product_id, comment, stars)
-                  VALUES (?,?,?,?,?,?,?)`
+                  VALUES (?,?,?,?)`
    const values =  [
         user_id	,
         product_id,
@@ -43,10 +43,10 @@ const updatereview = (id,reviews,callback) =>{
     } = reviews
 
     const sql =`UPDATE reviews SET
-              user_id	,
-              product_id,
-              comment,	
-              stars
+              user_id = ?,
+              product_id = ?,
+              comment = ?,	
+              stars = ?
                WHERE id = ?
               
      `
