@@ -39,3 +39,53 @@ const getUserById = (id,callback) =>{
     
     db.query(sql,[id],callback)
 }
+
+const updateUser = (id,users,callback) =>{
+     const {
+        name,
+        email,
+        password,
+        phone,	
+        address,	
+        role ,	
+        created_at
+    } = users
+
+    const sql =`UPDATE users SET
+               name = ?,
+               email = ?,
+               password = ?,
+               phone = ? ,
+               address = ?,
+               role = ?,
+               created_at = ? ,
+
+               WHERE id = ?
+              
+     `
+     const values  = [
+        name,
+        email,
+        password,
+        phone,	
+        address,	
+        role ,	
+        created_at,
+        id
+     ]
+     
+     db.query(sql,values,callback)
+}
+const deleteUser = (id,callback) =>{
+   const sql = `DELETE users WHERE id = ?`
+
+   db.query(sql,[id],callback)
+}
+
+module.exports = {
+    createUser,
+    getAllUser,
+    getUserById,
+    updateUser,
+    deleteUser
+}
