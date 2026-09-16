@@ -1,10 +1,10 @@
-const orderItemsModel = require('../models/orders_model')
+const orderItemsModel = require('../models/order_items_model')
 
 const CreateorderItems = (req,res) =>{
     const orderItems = req.body
 
-    orderItemsModel.createorderItems(orderItems,(err,result)=>{
-        if(err){
+     orderItemsModel.createorderItems(orderItems,(err,result)=>{
+       if(err){
             res.status(500).send({
                 messgae : "Error happened during orderItems created"
             })
@@ -16,6 +16,8 @@ const CreateorderItems = (req,res) =>{
             console.log( "orderItems successfully created!!!")
         }
     })
+    
+       
 }
 
 const GetAllorderItems = (req,res) =>{

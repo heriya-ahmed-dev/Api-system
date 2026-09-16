@@ -14,6 +14,8 @@ const Orders_Router = require('./routes/orders_route');
 
 const OrderItems_Router = require('./routes/order_items_route');
 
+const Review_Router = require('./routes/review_route')
+
 app.use(cors());
 
 const port  = process.env.PORT;
@@ -27,6 +29,8 @@ app.use('/',User_Router);
 app.use('/',Orders_Router);
 
 app.use('/',OrderItems_Router);
+
+app.use('/',Review_Router);
 
 
 
